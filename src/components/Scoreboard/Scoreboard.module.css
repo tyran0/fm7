@@ -1,0 +1,42 @@
+.scoreboard {
+    border: 3px solid hsl(217, 16%, 45%);
+    border-radius: 1rem;
+
+    padding: 1rem 1.25rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.scoreboard-plaque {
+    margin: 0px;
+    margin-block-end: 0px;
+    margin-block-start: 0px;
+    margin-inline-end: 0px;
+    margin-inline-start: 0px;
+
+    border-radius: 0.5rem;
+    
+    padding: 1rem;
+
+    background-color: #ffffff;
+
+    display: inline-block;
+}
+
+.scoreboard-label {
+    margin: 0rem 1rem;
+
+    color: hsl(229, 64%, 46%);
+
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.scoreboard-value {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+}
