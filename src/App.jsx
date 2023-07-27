@@ -24,9 +24,7 @@ import "./App.css";
 //     3.2.1. Completed!
 //     3.2.2. Completed!
 
-//     3.2.3. Inside <GameResult /> render player selected
-//            button (which will be highlighted) and an empty
-//            slot to display the computer's choice
+//     3.2.3. Completed!
 
 //     3.2.4. Randomly select either Rock, Paper or Scissors,
 //            then play a little cycle animation and finally
