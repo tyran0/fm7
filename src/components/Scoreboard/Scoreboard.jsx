@@ -1,3 +1,4 @@
+import Figure from "../ui/Figure/Figure";
 import cls from "./Scoreboard.module.css";
 
 export default function Scoreboard({ score = 0 }) {
@@ -8,10 +9,12 @@ export default function Scoreboard({ score = 0 }) {
           src="/images/logo.svg"
           alt="Rock, Paper, Scissors"
         />
-        <figure className={cls["scoreboard-plaque"]}>
-            <figcaption className={cls["scoreboard-label"]}>Score</figcaption>
-            <div className={cls["scoreboard-value"]}>{score}</div>
-        </figure>
+        <Figure
+          className={cls["scoreboard-plaque"]}
+          caption={<h2 className={cls["scoreboard-label"]}>Score</h2>}
+        >
+          <div className={cls["scoreboard-value"]}>{score}</div>
+        </Figure>
     </div>
   );
 }
