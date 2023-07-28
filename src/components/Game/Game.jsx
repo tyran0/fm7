@@ -1,51 +1,89 @@
 import { useState } from "react";
 
 import Button from "../ui/Button/Button";
-import Figure from "../ui/Figure/Figure";
 
 import Scoreboard from "../Scoreboard/Scoreboard";
 
-import usePlayPieces from "./PlayPiece/hooks/usePlayPieces";
+import PlayPiece from "../PlayPiece/PlayPiece";
+
+import useRockPaperScissors from "./hooks/useRockPaperScissors";
 
 import cls from "./Game.module.css";
 
-export default function Game({ playPieces }) {
-  const [playerScore, setPlayerScore] = useState(12);
+const playPieces = [
+  {
+    id: "rock",
+    iconUrl: "/icons/icon-rock.svg",
+    iconAlt: "Rock",
+    ringOutsetColor: "hsl(349, 71%, 42%)",
+    ringColor: "linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%))",
+  },
+  {
+    id: "paper",
+    iconUrl: "/icons/icon-paper.svg",
+    iconAlt: "Paper",
+    ringOutsetColor: "hsl(230, 89%, 52%)",
+    ringColor: "linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%))",
+  },
+  {
+    id: "scissors",
+    iconUrl: "/icons/icon-scissors.svg",
+    iconAlt: "Scissors",
+    ringOutsetColor: "hsl(39, 89%, 39%)",
+    ringColor: "linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%))",
+  },
+];
 
+const winningConditions = {
+  "paper_rock": true,
+  "rock_scissors": true,
+  "scissors_paper": true,
+}
+
+export default function Game() {
+  const [playerScore, setPlayerScore] = useState(12);
+  
   const {
+    reset,
+    select,
     isSelected,
-    playPiece,
-    emptySlot,
-    renderPlayPieces,
-    resetPlayPieces
-  } = usePlayPieces(() => {
-    console.log("TEST!");
-  }, playPieces);
+    playerSelected,
+    homeSelected,
+    didPlayerWin
+  } = useRockPaperScissors(updateScore, playPieces, winningConditions);
+
+  function updateScore(didPlayerWin) {
+    setPlayerScore(s => didPlayerWin ? s + 1 : s - 1);
+  }
 
   return (
-    <div style={{ maxWidth: "960px", margin: "0px auto" }}>
+    <div className={cls.game}>
       <Scoreboard score={playerScore} />
       {isSelected
-        ? <GameResult playPiece={playPiece} emptySlot={emptySlot} />
-        : <GameField>{renderPlayPieces}</GameField>}
-      <Button onClick={resetPlayPieces} size="large" filled>
-        RESET
-      </Button>
+        ? (
+          <>
+            <div className={cls["game-result"]}>
+              <PlayPiece isActive={didPlayerWin} { ...playerSelected } />
+              <PlayPiece isActive={!didPlayerWin} { ...homeSelected } />
+            </div>
+            <h1 style={{ color: "#ffffff" }} >{didPlayerWin ? "YOU WIN" : "YOU LOSE"}</h1>
+            <Button onClick={reset} filled size="large">
+              PLAY AGAIN
+            </Button>
+          </>
+        )
+        : (
+          <div className={cls["game-field"]}>
+            {playPieces.map((ppc) =>
+              <PlayPiece
+                key={ppc.id}
+                onClick={() => select(ppc.id)}
+                { ...ppc }
+              />
+            )}
+          </div>
+        )
+      }
     </div>
-  )
-}
-
-function GameResult({ playPiece, emptySlot }) {
-  return (
-    <div className={cls["game-result"]}>
-      <Figure caption="You Picked">{playPiece}</Figure>
-      <Figure caption="The House Picked">{emptySlot}</Figure>
-    </div>
-  );
-}
-
-function GameField({ children }) {
-  return (
-    <div className={cls["game-field"]}>{children()}</div>
   );
 }

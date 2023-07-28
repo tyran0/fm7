@@ -23,7 +23,6 @@ import "./App.css";
 
 //     3.2.1. Completed!
 //     3.2.2. Completed!
-
 //     3.2.3. Completed!
 
 //     3.2.4. Randomly select either Rock, Paper or Scissors,
@@ -70,7 +69,7 @@ export default function App() {
   return (
     <>
       <Game playPieces={playPieces} />
-      <Modal label="RULES">
+      <Modal id="rules-modal" label="RULES">
         <img src="/images/image-rules.svg" alt="Paper beats Rock, Rock beats Scissors, Scissors beat Paper" />
       </Modal>
       {/*
