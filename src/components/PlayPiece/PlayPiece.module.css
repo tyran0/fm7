@@ -1,0 +1,49 @@
+.playpiece {
+    border: none;
+    border-radius: 50%;
+    
+    padding: 0px;
+
+    display: inline-block;
+}
+
+.playpiece.is-active {
+    box-shadow:
+        0px 0px 0px 32px rgba(255, 255, 255, 0.03),
+        0px 0px 0px 64px rgba(255, 255, 255, 0.02),
+        0px 0px 0px 96px rgba(255, 255, 255, 0.01);
+}
+
+.playpiece-ring,
+.playpiece-face {
+    border-radius: inherit;
+}
+
+.playpiece-ring {
+    margin-bottom: 8px;
+
+    padding: 1.25rem;
+}
+
+.playpiece-face {
+    width: 96px;
+    height: 96px;
+
+    padding: 1.25rem;
+
+    text-align: center;
+}
+
+.playpiece-face.is-visible {
+    background-color: buttonface;
+
+    box-shadow: inset 0px 8px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+.playpiece-icon {
+    height: 100%;
+
+    scale: 1.2;
+
+    object-fit: none;
+}
