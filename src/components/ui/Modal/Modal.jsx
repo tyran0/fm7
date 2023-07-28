@@ -1,3 +1,5 @@
+import { joinClasses } from "../../../util/joinClasses";
+
 import { useRef } from "react";
 
 import Button from "../Button/Button";
@@ -15,12 +17,9 @@ export default function Modal({ label, id, className, children, ...restProps }) 
     modalRef.current.close();
   }
 
-  const rootClasses = [cls.modal];
-  if (className) rootClasses.push(className);
-
   return (
     <>
-      <dialog ref={modalRef} id={id} className={rootClasses.join(" ")} { ...restProps }>
+      <dialog ref={modalRef} id={id} className={joinClasses(cls.modal, className)} { ...restProps }>
         <header className={cls["modal-head"]}>
           <h2 className={cls["modal-title"]}>{label}</h2>
           <button onClick={closeModal} className={cls["modal-button"]}>
