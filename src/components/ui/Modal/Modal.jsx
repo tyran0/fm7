@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 
 import cls from "./Modal.module.css";
 
-export default function Modal({ label = "Modal", children }) {
+export default function Modal({ label, id, className, children, ...restProps }) {
   const modalRef = useRef(null);
 
   function openModal() {
@@ -15,9 +15,12 @@ export default function Modal({ label = "Modal", children }) {
     modalRef.current.close();
   }
 
+  const rootClasses = [cls.modal];
+  if (className) rootClasses.push(className);
+
   return (
     <>
-      <dialog ref={modalRef} className={cls.modal}>
+      <dialog ref={modalRef} id={id} className={rootClasses.join(" ")} { ...restProps }>
         <header className={cls["modal-head"]}>
           <h2 className={cls["modal-title"]}>{label}</h2>
           <button onClick={closeModal} className={cls["modal-button"]}>
@@ -30,7 +33,7 @@ export default function Modal({ label = "Modal", children }) {
          {children}
         </div>
       </dialog>
-      <Button onClick={openModal}>
+      <Button aria-controls={id} onClick={openModal}>
         {label}
       </Button>
     </>
