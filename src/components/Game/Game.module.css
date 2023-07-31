@@ -1,11 +1,29 @@
 .game {
     max-width: 960px;
+    height: 100%;
+
     margin-left: auto;
     margin-right: auto;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    overflow-x: hidden;
 }
 
 .game-field,
-.game-result {
+.game-result-wrap {
     display: flex;
+    align-items: center;
     justify-content: center;
+}
+
+.game-result-wrap {
+    margin-top: 120px;
+
+    column-gap: 120px;
+}
+
+.game-result-info {
+    text-align: center;
 }

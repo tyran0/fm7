@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import Modal from "../ui/Modal/Modal";
 import Button from "../ui/Button/Button";
 
 import Scoreboard from "../Scoreboard/Scoreboard";
@@ -61,16 +62,18 @@ export default function Game() {
       <Scoreboard score={playerScore} />
       {isSelected
         ? (
-          <>
-            <div className={cls["game-result"]}>
+          <div className={cls["game-result"]}>
+            <div className={cls["game-result-wrap"]}>
               <PlayPiece isActive={didPlayerWin} { ...playerSelected } />
               <PlayPiece isActive={!didPlayerWin} { ...homeSelected } />
             </div>
-            <h1 style={{ color: "#ffffff" }} >{didPlayerWin ? "YOU WIN" : "YOU LOSE"}</h1>
-            <Button onClick={reset} filled size="large">
-              PLAY AGAIN
-            </Button>
-          </>
+            <div className={cls["game-result-info"]}> 
+              <h1 style={{ color: "#ffffff", fontSize: "3rem" }} >{didPlayerWin ? "YOU WIN" : "YOU LOSE"}</h1>
+              <Button onClick={reset} filled size="large">
+                PLAY AGAIN
+              </Button>
+            </div>
+          </div>
         )
         : (
           <div className={cls["game-field"]}>
@@ -84,6 +87,9 @@ export default function Game() {
           </div>
         )
       }
+      <Modal id="rules-modal" label="RULES" style={{ justifySelf: "end" }}>
+        <img src="/images/image-rules.svg" alt="Paper beats Rock, Rock beats Scissors, Scissors beat Paper" />
+      </Modal>
     </div>
   );
 }

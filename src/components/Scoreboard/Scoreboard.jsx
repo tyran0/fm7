@@ -6,6 +6,8 @@ export default function Scoreboard({ score = 0 }) {
     <div className={cls.scoreboard}>
         <img
           style={{ display: "block" }}
+          width={162}
+          height={99}
           src="/images/logo.svg"
           alt="Rock, Paper, Scissors"
         />

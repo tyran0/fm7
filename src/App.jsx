@@ -29,10 +29,7 @@ import "./App.css";
 export default function App() {
   return (
     <>
-      <Game playPieces={playPieces} />
-      <Modal id="rules-modal" label="RULES">
-        <img src="/images/image-rules.svg" alt="Paper beats Rock, Rock beats Scissors, Scissors beat Paper" />
-      </Modal>
+      <Game />
     </>
   );
 }
