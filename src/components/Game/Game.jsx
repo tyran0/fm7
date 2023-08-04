@@ -63,10 +63,8 @@ export default function Game() {
       {isSelected
         ? (
           <div className={cls["game-result"]}>
-            <div className={cls["game-result-wrap"]}>
-              <PlayPiece isActive={didPlayerWin} { ...playerSelected } />
-              <PlayPiece isActive={!didPlayerWin} { ...homeSelected } />
-            </div>
+            <PlayPiece isActive={didPlayerWin} { ...playerSelected } />
+            <PlayPiece isActive={!didPlayerWin} { ...homeSelected } />
             <div className={cls["game-result-info"]}> 
               <h1 style={{ color: "#ffffff", fontSize: "3rem" }} >{didPlayerWin ? "YOU WIN" : "YOU LOSE"}</h1>
               <Button onClick={reset} filled size="large">
@@ -88,7 +86,13 @@ export default function Game() {
         )
       }
       <Modal id="rules-modal" label="RULES" style={{ justifySelf: "end" }}>
-        <img src="/images/image-rules.svg" alt="Paper beats Rock, Rock beats Scissors, Scissors beat Paper" />
+        <img
+          src="/images/image-rules.svg"
+          width={304}
+          height={270}
+          alt="Paper beats Rock, Rock beats Scissors, Scissors beat Paper"
+          style={{ width: "100%", height: "auto" }}
+        />
       </Modal>
     </div>
   );

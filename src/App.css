@@ -4,6 +4,7 @@ html {
     font-family: "Barlow Semi Condensed", sans-serif;
 
     color: hsl(229, 25%, 31%);
+    background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
 }
 
 body {
@@ -12,20 +13,25 @@ body {
     position: absolute;
     inset: 0px;
     
+    background: inherit;
 }
 
 #root {
     height: 100%;
 
-    padding: 2rem;
+    padding: 1rem;
 
     box-sizing: border-box;
-
-    background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
 }
 
 button {
     cursor: pointer;
     font-family: inherit;
     font-size: inherit;
+}
+
+@media only screen and (min-width: 425.02px) {
+    #root {
+        padding: 2rem;
+    }
 }

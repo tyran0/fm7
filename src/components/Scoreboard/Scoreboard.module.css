@@ -2,23 +2,27 @@
     border: 3px solid hsl(217, 16%, 45%);
     border-radius: 1rem;
 
-    padding: 1rem 1.25rem;
+    padding: 0.75rem 1rem;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
+.scoreboard-logo {
+    display: block;
+}
+
 .scoreboard-plaque {
     border-radius: 0.5rem;
     
-    padding: 1rem;
+    padding: 0.75rem;
 
     background-color: #ffffff;
 }
 
 .scoreboard-label {
-    margin: 0rem 1rem;
+    margin: 0rem 0.75rem;
 
     color: hsl(229, 64%, 46%);
 
@@ -28,7 +32,32 @@
 }
 
 .scoreboard-value {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     text-align: center;
+}
+
+@media only screen and (max-width: 375px) {
+   .scoreboard-logo {
+       width: 50%;
+       height: auto;
+   } 
+}
+
+@media only screen and (min-width: 375px) {
+    .scoreboard {
+        padding: 1rem 1.25rem;
+    }
+
+    .scoreboard-plaque {
+        padding: 1rem;
+    }
+
+    .scoreboard-label {
+        margin: 0rem 1rem;
+    }
+
+    .scoreboard-value {
+        font-size: 3rem;
+    }
 }

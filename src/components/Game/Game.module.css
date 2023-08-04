@@ -7,23 +7,34 @@
 
     display: grid;
     grid-template-rows: auto 1fr auto;
-
-    overflow-x: hidden;
 }
 
 .game-field,
-.game-result-wrap {
-    display: flex;
-    align-items: center;
+.game-result {
     justify-content: center;
 }
 
-.game-result-wrap {
-    margin-top: 120px;
+.game-field {
+    display: flex;
+    align-items: center;
+}
 
-    column-gap: 120px;
+.game-result {
+    display: grid;
+    align-content: center;
+}
+
+.game-result > :nth-child(1) {
+    justify-self: end;
+}
+
+.game-result > :nth-child(2) {
+    justify-self: start;
 }
 
 .game-result-info {
     text-align: center;
+
+    grid-row: 2;
+    grid-column: span 2;
 }
