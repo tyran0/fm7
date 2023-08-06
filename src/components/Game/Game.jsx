@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Modal from "../ui/Modal/Modal";
 import Button from "../ui/Button/Button";
@@ -41,9 +41,23 @@ const winningConditions = {
   "scissors_paper": true,
 }
 
-export default function Game() {
-  const [playerScore, setPlayerScore] = useState(12);
-  
+export default function Game({ defaultScore = 12 }) {
+  const [playerScore, setPlayerScore] = useState(defaultScore);
+
+  let lastSavedScore = playerScore;
+
+  useEffect(() => {
+    const savedScore = localStorage.getItem("player_score");
+    if (!savedScore) return;
+
+    lastSavedScore = +savedScore;
+    setPlayerScore(lastSavedScore);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("player_score", lastSavedScore);
+  }, [lastSavedScore]);
+
   const {
     reset,
     select,
