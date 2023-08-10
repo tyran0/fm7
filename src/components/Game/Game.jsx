@@ -13,13 +13,6 @@ import cls from "./Game.module.css";
 
 const playPieces = [
   {
-    id: "rock",
-    iconUrl: "/icons/icon-rock.svg",
-    iconAlt: "Rock",
-    ringOutsetColor: "hsl(349, 71%, 42%)",
-    ringColor: "linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%))",
-  },
-  {
     id: "paper",
     iconUrl: "/icons/icon-paper.svg",
     iconAlt: "Paper",
@@ -33,6 +26,13 @@ const playPieces = [
     ringOutsetColor: "hsl(39, 89%, 39%)",
     ringColor: "linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%))",
   },
+  {
+    id: "rock",
+    iconUrl: "/icons/icon-rock.svg",
+    iconAlt: "Rock",
+    ringOutsetColor: "hsl(349, 71%, 42%)",
+    ringColor: "linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%))",
+  }
 ];
 
 const winningConditions = {

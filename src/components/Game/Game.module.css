@@ -11,17 +11,32 @@
 
 .game-field,
 .game-result {
-    justify-content: center;
+    display: grid;
+
+    margin: auto;
 }
 
 .game-field {
-    display: flex;
-    align-items: center;
+    background: url("/images/bg-triangle.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+
+    column-gap: 2rem;
 }
 
-.game-result {
-    display: grid;
-    align-content: center;
+.game-field > :nth-child(1) {
+    grid-column: 1;
+}
+
+.game-field > :nth-child(2) {
+    grid-column: 2;
+}
+
+.game-field > :nth-child(3) {
+    grid-column: span 2;
+
+    justify-self: center;
 }
 
 .game-result > :nth-child(1) {
@@ -37,4 +52,25 @@
 
     grid-row: 2;
     grid-column: span 2;
+}
+
+@media only screen and (min-width: 375.02px) {
+    .game-field {
+        column-gap: 3rem;
+        row-gap: 0.33rem;
+    }
+}
+
+@media only screen and (min-width: 425.02px) {
+    .game-field {
+        column-gap: 4rem;
+        row-gap: 0.66rem;
+    }
+}
+
+@media only screen and (min-width: 768.02px) {
+    .game-field {
+        column-gap: 5rem;
+        row-gap: 0.99rem;
+    }
 }
