@@ -29,7 +29,6 @@ Users should be able to:
 ### Links
 
 - Solution URL: [www.frontendmentor.io/solutions/rock-paper-scissors-game-C3lZ0kYMya](https://www.frontendmentor.io/solutions/rock-paper-scissors-game-C3lZ0kYMya)
-- Live Site URL: [tyran0-rock-paper-scissors.netlify.app](https://tyran0-rock-paper-scissors.netlify.app)
 
 ## Author
 
